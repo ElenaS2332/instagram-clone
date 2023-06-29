@@ -7,7 +7,15 @@
     </div>
 </section>
 <div class="album py-5 bg-primary-subtle">
-    <div class="container d-flex flex-wrap ">
+    <div class="col " id="selectDiv">
+        <label for="selectPhotoNum" class="fw-light">Select number of photos per page</label>
+        <select id="selectPhotoNum" class="form-select form-select-sm" (change)="onTableSizeChange($event)">
+            <option *ngFor="let size of tableSizes">
+                {{ size }}
+            </option>
+        </select>
+    </div>
+    <div class="container d-flex flex-wrap " id="photosDiv">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div class="col">
                 <mat-card class="d-flex align-content-md-center flex-column">
@@ -28,7 +36,11 @@
                     </mat-card-content>
                 </mat-card>
             </div>
-            <div class="col" *ngFor="let photo of photos">
+            <div class="col" *ngFor="let photo of photos | paginate: {
+                itemsPerPage: tableSize, 
+                currentPage: page,
+                totalItems: count};
+                let i = index">
                 <mat-card>
                     <mat-card-header>
                         <mat-card-title class="fw-light">
@@ -52,6 +64,16 @@
 
     </div>
     
+</div>
+
+<div class="bg-primary-subtle" id="paginationDiv">
+    <pagination-controls
+        
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)">
+
+    </pagination-controls>
 </div>
 
 <footer class="bg-primary-subtle">

@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { PhotosData } from './photos-data';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -29,8 +30,7 @@ import { PhotosData } from './photos-data';
     ReactiveFormsModule,
     FormsModule,
     ToastrModule.forRoot(),
-    InMemoryWebApiModule.forRoot(PhotosData),
-
+    NgxPaginationModule
   ]
 })
 export class PhotosModule { }

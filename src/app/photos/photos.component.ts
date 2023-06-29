@@ -16,10 +16,22 @@ export class PhotosComponent implements OnInit, OnDestroy {
   photos : IPhoto[] = [];
   errorMessage: string = '';
   sub !: Subscription;
+
+  page: number = 1;
+  count : number = 0;
+  tableSize : number = 5;
+  tableSizes: any = [5, 10, 15, 20]
+
+
+
   constructor(private service : ApiService, 
       private router: Router){}
 
   ngOnInit(): void {
+    this.postList();
+  }
+
+  postList(){
     this.sub = this.service.getPhotos().subscribe({
       next: photos => this.photos = photos,
       error: err => this.errorMessage = err
@@ -30,6 +42,7 @@ export class PhotosComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
   
+
   
   showDetails(id : number | null) : void{
     this.router.navigate(['photos/' + id])
@@ -39,5 +52,19 @@ export class PhotosComponent implements OnInit, OnDestroy {
     this.router.navigate(['photos/' + id + '/edit'])
 
   }
+
+  
+  onTableDataChange(event : any){
+    this.page = event;
+    this.postList();
+  }
+
+  onTableSizeChange(event : any){
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.postList();
+  }
+
+
 
 }

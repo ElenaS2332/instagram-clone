@@ -9,12 +9,12 @@ import { IPhoto } from '../photos/photo';
 })export class ApiService {
   constructor(private http: HttpClient) { }
 
-  private photosUrl = 'api/photos';
+  // private photosUrl = 'api/photos';
 
   // If you want to receive the data directly from the API 
   // However, there are circular dependencies detected because of Photo-data
   // Hardcoding the values seemed like the better option for now
-  // private photosUrl = 'https://jsonplaceholder.typicode.com/photos';
+  private photosUrl = 'https://jsonplaceholder.typicode.com/photos';
 
   photos : IPhoto[] = [];
   sub!: Subscription;
