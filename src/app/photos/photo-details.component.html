@@ -1,0 +1,39 @@
+
+<div class="main-div fw-light text-center">
+    
+    <div class="text-center d-flex justify-content-evenly" id="icons">
+        <a routerLink="/photos">
+            <mat-icon>arrow_back</mat-icon>
+        </a>
+        <a routerLink="/welcome">
+            <mat-icon>home</mat-icon>
+        </a>
+    </div>
+    
+    <div class="container text-center" >
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <div class="row d-flex justify-content-center align-items-center">
+            
+          <div class="col-md-6">
+
+                <img mat-card-image [src]="photo.url">
+          </div>
+          <div class="d-flex flex-column align-items-start col-6 col-md-4 text-start custom">
+            <h1 class="mb-auto p-2">{{title}}</h1>
+            <span class="mb-auto p-2">{{photo.title}}</span>
+            <div class="mb-auto p-2" id="buttonDiv">
+              <button (click)="edit()" mat-raised-button color="primary">
+                Edit
+              </button>
+              <button (click)="deletePhoto()" mat-raised-button color="accent"> 
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      
+            
+      </div>
+
+</div>
+

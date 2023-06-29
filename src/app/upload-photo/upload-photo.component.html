@@ -1,0 +1,67 @@
+<div class="container text-center">
+    <mat-card>
+        <h2> {{ pageTitle }} </h2>
+        <form novalidate
+         (ngSubmit)="save()" 
+         [formGroup]="uploadPhotoForm">
+
+            <div class="form-group row mb-2">
+                <div class="col-md-4 text-start">
+                    <label class="form-label"
+                     for="title">Add title</label>    
+                    <input class="form-control"
+                        type="text" 
+                        id="title"
+                        placeholder="Title (Required)" 
+                        formControlName="title"
+                        [ngClass]="{'is-invalid': titleMessage }">
+                    <div [hidden]="!titleMessage" 
+                        class="alert alert-danger">
+                        {{ titleMessage }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-md-4 text-start">
+                    <label class="form-label"
+                    for="url">Upload an Image</label>
+                    <input type="file" 
+                        id="url"
+                        class="form-control"
+                        formControlName="url"
+                        [ngClass]="{'is-invalid': imageUrlMessage }"
+                        (change)="onSelect($event, 'image')">
+                    <div [hidden]="!imageUrlMessage"
+                        class="alert alert-danger">
+                        {{ imageUrlMessage }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-md-4 text-start">
+                    <label class="form-label" 
+                     for="thumbnailUrl">Upload a Thumbnail Image</label>
+                    
+                    <input type="file" 
+                        id="thumbnailUrl"
+                        class="form-control"
+                        formControlName="thumbnailUrl"
+                        [ngClass]="{'is-invalid': thumbnailImageUrlMessage }"
+                        (change)="onSelect($event, 'thumbnail')">
+                    <div [hidden]="!thumbnailImageUrlMessage"
+                        class="alert alert-danger">
+                        {{ thumbnailImageUrlMessage }}
+                    </div>
+                </div>
+            </div>
+           
+            <br/>
+            <button mat-raised-button color="warn"
+                [disabled]="!uploadPhotoForm.valid">
+                Save
+            </button>
+
+        </form>
+    </mat-card>
+    
+</div>

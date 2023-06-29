@@ -1,0 +1,64 @@
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Photos</h1>
+        </div>
+    </div>
+</section>
+<div class="album py-5 bg-primary-subtle">
+    <div class="container d-flex flex-wrap ">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+                <mat-card class="d-flex align-content-md-center flex-column">
+                    <mat-card-header>
+                        <mat-card-title class="fw-light">
+                            UPLOAD A PHOTO
+                        </mat-card-title>
+                        
+                    </mat-card-header>
+                    <mat-card-content>
+                        <a routerLink="/photos/0/edit">
+                            <div id="addLinkDiv">
+                                <mat-icon id="addIcon">add_to_photos</mat-icon>
+                            </div>
+                        </a>
+                       
+                        
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col" *ngFor="let photo of photos">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title class="fw-light">
+                            {{ photo.title }}
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <img mat-card-image [src]="photo.thumbnailUrl">
+                    </mat-card-content>
+                    <br>
+                    <mat-card-footer>
+                        <mat-card-actions class="d-flex justify-content-center flex-wrap">
+                            <button (click)="edit(photo.id)" mat-raised-button color="primary">Edit</button>
+                            <button (click)="showDetails(photo.id)" mat-raised-button color="secondary">Details</button>
+                        </mat-card-actions>
+                    </mat-card-footer>
+                </mat-card>
+            </div>
+
+        </div>
+
+    </div>
+    
+</div>
+
+<footer class="bg-primary-subtle">
+    <div class="text-center d-flex justify-content-evenly" id="icons">
+        <a routerLink="/welcome">
+            <mat-icon>home</mat-icon>
+        </a>
+    </div>
+    
+</footer>    

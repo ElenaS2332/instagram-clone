@@ -1,0 +1,31 @@
+.main-div{
+    padding-top: 30px;    
+}
+.custom{
+    background-color: rgba(155, 223, 128, 0.615);
+    padding-top: 50px;
+    padding-left: 30px;
+    height: 300px;
+    border-top-right-radius: 80px;
+}
+a{
+    color: black;
+        
+    
+}
+#icons{
+    text-align: center;
+    margin-top: -40px;
+    margin-left: -30px;
+}
+
+img{
+    min-width: 200px;
+    min-height: 200px;
+    width: 600px;
+    height: 600px;
+}
+
+#buttonDiv{
+    position: relative;
+}

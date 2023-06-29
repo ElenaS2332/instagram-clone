@@ -1,0 +1,46 @@
+mat-card{
+    margin: auto;
+    width: 400px;
+    min-width: 100px;
+    height: 500px;
+    max-height: 700px;
+    padding: 20px;
+}
+.field-error{
+    border: 1px solid red;
+}
+input, label, .alert{
+    width: 360px;
+}
+
+/* media */
+
+@media(max-width: 400px){
+    mat-card{
+        width: 300px;
+    }
+    input, label, .alert{
+        width: 260px;
+    }
+}
+@media(max-width: 300px){
+    mat-card{
+        width: 200px;
+        font-size: 12px;
+        height: 600px;
+
+    }
+    input, label, .alert{
+        width: 160px;
+    }
+}
+@media(max-width: 200px){
+    mat-card{
+        width: 100px;
+        font-size: 11px;
+
+    }
+    input, label, .alert{
+        width: 60px;
+    }
+}
